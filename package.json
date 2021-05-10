@@ -5,21 +5,33 @@
     "main": "build/main.js",
     "author": "Jacek Czajkowski",
     "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/pusio/dialog4react.git"
+    },
+    "keywords": [
+        "dialog",
+        "modal",
+        "window",
+        "popup",
+        "alert",
+        "ui",
+        "react",
+        "react-component",
+        "component"
+    ],
     "devDependencies": {
-        "@babel/cli": "^7.13.16",
-        "@babel/core": "^7.14.0",
-        "@babel/plugin-proposal-class-properties": "^7.13.0",
-        "@babel/plugin-proposal-object-rest-spread": "^7.13.8",
-        "@babel/preset-env": "^7.14.1",
-        "@babel/preset-react": "^7.13.13",
+        "@types/node": "^15.0.2",
+        "@types/react": "^17.0.5",
+        "@types/react-dom": "^17.0.3",
         "copyfiles": "^2.4.1",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
-        "rimraf": "^3.0.2"
+        "rimraf": "^3.0.2",
+        "typescript": "^3.9.9"
     },
     "scripts": {
-        "build": "rimraf build & babel src -d build & copyfiles -u 1 src/*.css build",
-        "todo": "minify css? copy files to dist?"
+        "build": "rimraf build & tsc & copyfiles -u 1 src/style/*.css build"
     },
     "files": [
         "build/*"
