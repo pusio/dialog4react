@@ -1,6 +1,6 @@
 export type Message = {
     title?: string, // title of the message
-    text?: string, // body of the message
+    body?: string, // body of the message
     showCancel?: boolean, // should cancel button be visible
     onClickCancel?: CallbackFunction, // executed when cancel button is clicked
     onClickConfirm?: CallbackFunction, // executed when confirm button is clicked

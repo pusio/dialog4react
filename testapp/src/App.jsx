@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Dialog, { DialogComponent } from 'dialog4react';
+import Dialog, { DarkDialogComponent as DialogComponent } from 'dialog4react';
 import './style.css';
 
 export default class App extends Component {
@@ -7,10 +7,10 @@ export default class App extends Component {
         return (
             <React.Fragment>
                 <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", maxWidth: "1000px", margin: "50px auto" }}>
-                    <button className="test-button" onClick={() => Dialog.add({ text: "hello world" })}>Simple Message</button>
+                    <button className="test-button" onClick={() => Dialog.add({ body: "hello world" })}>Simple Message</button>
                     <button className="test-button" onClick={() => Dialog.add({
                         title: '(optional) title of the message',
-                        text: '(optional) body of the message',
+                        body: '(optional) body of the message',
                         showCancel: true,
                         onClickCancel: () => console.log("cancel"),
                         onClickConfirm: () => console.log("confirm"),
@@ -19,7 +19,7 @@ export default class App extends Component {
                     })}>Advanced Message</button>
                     <button className="test-button" onClick={() => Dialog.add({
                         title: 'Lorem Ipsum',
-                        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec nulla sem. Nam at erat aliquet, elementum odio eu, molestie ligula. Proin accumsan tincidunt nisl, id pulvinar sapien semper nec. In hac habitasse platea dictumst. Aliquam at lobortis metus. Sed gravida tincidunt tortor id faucibus. In fringilla semper dui. Integer accumsan iaculis finibus.',
+                        body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec nulla sem. Nam at erat aliquet, elementum odio eu, molestie ligula. Proin accumsan tincidunt nisl, id pulvinar sapien semper nec. In hac habitasse platea dictumst. Aliquam at lobortis metus. Sed gravida tincidunt tortor id faucibus. In fringilla semper dui. Integer accumsan iaculis finibus.',
                         showCancel: true
                     })}>Lorem Ipsum</button>
                     <button className="test-button" onClick={() => {
@@ -41,7 +41,7 @@ export default class App extends Component {
                         for (let i = 0; i < 10; i++) {
                             Dialog.add({
                                 title: fiftyFifty(null, randomText()),
-                                text: randomText(),
+                                body: randomText(),
                                 showCancel: fiftyFifty(true, false),
                                 onClickCancel: () => console.log(randomText()),
                                 onClickConfirm: () => console.log(randomText()),

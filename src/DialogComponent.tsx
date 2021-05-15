@@ -5,30 +5,30 @@ export type DialogComponentProps = {
     overlayClassName?: string,
     containerClassName?: string,
     titleClassName?: string,
-    textClassName?: string,
+    bodyClassName?: string,
     buttonContainerClassName?: string,
     buttonConfirmClassName?: string,
+    buttonConfirmText?: string,
     buttonCancelClassName?: string,
-    defaultCancelText?: string,
-    defaultConfirmText?: string
+    buttonCancelText?: string,
 };
 
 type DialogComponentState = {
     message?: Message;
 };
 
-export default class StylessDialogComponent extends Component<DialogComponentProps, DialogComponentState> {
+export default class DialogComponent extends Component<DialogComponentProps, DialogComponentState> {
 
     public static defaultProps: DialogComponentProps = {
         overlayClassName: "dialog4react-overlay",
         containerClassName: "dialog4react-container",
         titleClassName: "dialog4react-title",
-        textClassName: "dialog4react-text",
+        bodyClassName: "dialog4react-body",
         buttonContainerClassName: "dialog4react-button-container",
         buttonConfirmClassName: "dialog4react-confirm",
         buttonCancelClassName: "dialog4react-cancel",
-        defaultCancelText: "Cancel",
-        defaultConfirmText: "Confirm"
+        buttonCancelText: "Cancel",
+        buttonConfirmText: "Confirm",
     };
 
     private locked: boolean;
@@ -82,17 +82,23 @@ export default class StylessDialogComponent extends Component<DialogComponentPro
     public render() {
         const { message } = this.state;
         if (!message) return null;
-        const { overlayClassName, containerClassName, titleClassName, textClassName,
-            buttonContainerClassName, buttonConfirmClassName, buttonCancelClassName,
-            defaultCancelText, defaultConfirmText } = this.props;
+        const {
+            overlayClassName,
+            containerClassName,
+            titleClassName,
+            bodyClassName,
+            buttonContainerClassName,
+            buttonConfirmClassName, buttonConfirmText,
+            buttonCancelClassName, buttonCancelText,
+        } = this.props;
         return (
             <div className={overlayClassName}>
                 <div className={containerClassName}>
-                    {message.title && <h1 className={titleClassName}>{message.title}</h1>}
-                    {message.text && <p className={textClassName}>{message.text}</p>}
-                    <div className={buttonContainerClassName}>
-                        {message.showCancel && <button className={buttonCancelClassName} onClick={this.onClickCancel}>{message.cancelText || defaultCancelText}</button>}
-                        <button className={buttonConfirmClassName} onClick={this.onClickConfirm}>{message.confirmText || defaultConfirmText}</button>
+                    {message.title && <h1 className={titleClassName} >{message.title}</h1>}
+                    {message.body && <p className={bodyClassName} >{message.body}</p>}
+                    <div className={buttonContainerClassName} >
+                        {message.showCancel && <button className={buttonCancelClassName} onClick={this.onClickCancel}>{message.cancelText || buttonCancelText}</button>}
+                        <button className={buttonConfirmClassName} onClick={this.onClickConfirm}>{message.confirmText || buttonConfirmText}</button>
                     </div>
                 </div>
             </div>

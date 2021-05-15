@@ -24,14 +24,14 @@
         "@types/node": "^15.0.2",
         "@types/react": "^17.0.5",
         "@types/react-dom": "^17.0.3",
-        "copyfiles": "^2.4.1",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "rimraf": "^3.0.2",
+        "style-it": "^2.1.4",
         "typescript": "^3.9.9"
     },
     "scripts": {
-        "build": "rimraf build & tsc & copyfiles -u 1 src/style/*.css build"
+        "build": "rimraf build & tsc"
     },
     "files": [
         "build/*"
