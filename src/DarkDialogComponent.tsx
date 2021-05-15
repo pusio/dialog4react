@@ -1,5 +1,5 @@
 import DialogComponent from './DialogComponent';
-import Style from 'style-it';
+import React from 'react';
 
 export default class DarkDialogComponent extends DialogComponent {
     private customStyle: string = `
@@ -14,6 +14,7 @@ export default class DarkDialogComponent extends DialogComponent {
         }
         .dialog4react-container {
             max-width: 500px;
+            min-width: 250px;
             width: fit-content;
             margin: 0 auto;
             position: relative;
@@ -74,6 +75,11 @@ export default class DarkDialogComponent extends DialogComponent {
         }
     `;
     public render() {
-        return Style.it(this.customStyle, super.render());
+        return (
+            <React.Fragment>
+                <style type={"text/css"}>{this.customStyle}</style>
+                {super.render()}
+            </React.Fragment>
+        );
     }
 }

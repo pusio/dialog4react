@@ -223,6 +223,7 @@ If you need something to start with, you can copy the following css. It comes fr
 }
 .dialog4react-container {
     max-width: 500px;
+    min-width: 250px;
     width: fit-content;
     margin: 0 auto;
     position: relative;
